@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lightly-HTML-Project</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+       #w{
+            position:relative;
+            left:485px;
+            top: 258px;
+            
+            z-index:2;
+       }
+        #box {
+            position:relative;
+            width: 1000px;
+            height: 300px;
+            line-height: 250px;
+            left:215px;
+            font-size: 50px;
+            font-weight: 500;
+            margin: 100px auto;
+            color: rgb(9, 186, 7);
+            z-index:1;
+        }
+    </style>
+
+</head>
+
+
+<body background="./bg.png">
+
+    <div id="w">
+<img id="btn" src="./1.png" width="50" height="50">
+    </div>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box')
+
+        //不足十位补零
+        let addZero = val => val < 10 ? '0' + val : val
+
+        setTime ()
+        //获取时间的方法
+        function setTime() {
+            let time = new Date();
+            let hour = time.getHours(); // 获取小时
+            let min = time.getMinutes(); // 获取分钟
+            let sec = time.getSeconds(); // 获取秒
+            let hs = time.getMilliseconds()/10; //获取毫秒
+
+            let value = addZero(hour)+ ':'+addZero(min)+':'+addZero(sec)+':'+addZero(hs)
+            // 把所有的时间拼接到一起
+            box.innerText = value
+            //console.log(value)
+            // 把拼接好的时间插入到页面
+
+        }
+        // 让定时器每间隔一秒就执行一次setTime这个方法（这是实现时钟的核心）1000
+        setInterval(setTime, 110)
+    </script>
+</body>
+
+</html>
+
+
+
+</html>
